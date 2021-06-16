@@ -33,7 +33,13 @@ public class FeatureAccessController {
 
     @PostMapping(value = "/feature")
     public ResponseEntity<String> updateAccess(@RequestBody FeatureAccessRequestDTO request) {
-        UserAccessBO userAccessBO = featureService.updateUserAccess(convertToUserAccessBO(request));
+        UserAccessBO userAccessBO = new UserAccessBO();
+        try {
+            userAccessBO = featureService.updateUserAccess(convertToUserAccessBO(request));
+        } catch(Exception e) {
+            logger.error("An exception has occurred: ", e);
+            userAccessBO.setSuccess(false);
+        }
 
         return userAccessBO.isSuccess() ?
                 new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
