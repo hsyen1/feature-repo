@@ -11,10 +11,10 @@ create table user (
 drop table if exists feature;
 create table feature (
     id integer auto_increment not null,
-    feature_code varchar(64) not null,
     feature_name varchar(64) not null,
+    feature_description varchar(64) not null,
     primary key (id),
-    unique(feature_code)
+    unique(feature_name)
 );
 
 drop table if exists user_feature_access;
@@ -40,16 +40,16 @@ values (4, 'may@testing.com', 'May Vee', sysdate());
 
 
 -- mock data for feature table
-insert into feature (id, feature_code, feature_name)
+insert into feature (id, feature_name, feature_description)
 values (1, 'VIEW_CONSOLE', 'View Console');
 
-insert into feature (id, feature_code, feature_name)
+insert into feature (id, feature_name, feature_description)
 values (2, 'EDIT_CONSOLE', 'Edit Console');
 
-insert into feature (id, feature_code, feature_name)
+insert into feature (id, feature_name, feature_description)
 values (3, 'VIEW_TXN_HISTORY', 'View Transaction History');
 
-insert into feature (id, feature_code, feature_name)
+insert into feature (id, feature_name, feature_description)
 values (4, 'DOWNLOAD_TXN_HISTORY', 'Download Transaction History');
 
 

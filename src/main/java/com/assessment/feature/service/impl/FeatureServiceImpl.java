@@ -37,18 +37,18 @@ public class FeatureServiceImpl implements FeatureService {
     Logger logger = LoggerFactory.getLogger(FeatureServiceImpl.class);
 
     @Override
-    public UserAccessBO getUserAccess(String email, String featureCode) {
+    public UserAccessBO getUserAccess(String email, String featureName) {
         UserAccessBO userAccessBO = new UserAccessBO();
 
         try {
-            validateParams(email, featureCode);
+            validateParams(email, featureName);
 
             // check if user exists
             User user = userRepository.findByEmail(email);
 
             Assert.notNull(user, "No such user exists.");
 
-            Feature feature = featureRepository.findByFeatureCode(featureCode);
+            Feature feature = featureRepository.findByFeatureName(featureName);
 
             // check if it is a valid code
             Assert.notNull(feature, "No such feature exists.");
@@ -62,7 +62,7 @@ public class FeatureServiceImpl implements FeatureService {
             userAccessBO.setCanAccess(canAccess);
             userAccessBO.setUserId(user.getId());
             userAccessBO.setEmail(user.getEmail());
-            userAccessBO.setFeatureCode(feature.getFeatureCode());
+            userAccessBO.setFeatureName(feature.getFeatureName());
             userAccessBO.setSuccess(true);
         } catch(IllegalArgumentException e) {
 
@@ -80,19 +80,19 @@ public class FeatureServiceImpl implements FeatureService {
     public UserAccessBO updateUserAccess(UserAccessRequestBO userAccessRequestBO) {
 
         String userEmail = userAccessRequestBO.getEmail();
-        String featureCode = userAccessRequestBO.getFeatureCode();
+        String featureName = userAccessRequestBO.getFeatureName();
         boolean enable = userAccessRequestBO.isEnable();
         UserAccessBO userAccessBO = new UserAccessBO();
 
         try {
-            validateParams(userEmail, featureCode);
+            validateParams(userEmail, featureName);
 
             // check if user exists
             User user = userRepository.findByEmail(userEmail);
 
             Assert.notNull(user, "No such user exists.");
 
-            Feature feature = featureRepository.findByFeatureCode(featureCode);
+            Feature feature = featureRepository.findByFeatureName(featureName);
 
             // check if it is a valid code
             Assert.notNull(feature, "No such feature exists.");
@@ -123,9 +123,9 @@ public class FeatureServiceImpl implements FeatureService {
         return userAccessBO;
     }
 
-    private void validateParams(String email, String featureCode) {
+    private void validateParams(String email, String featureName) {
         Assert.isTrue(StringUtils.isNotBlank(email), "user email cannot be blank.");
 
-        Assert.isTrue(StringUtils.isNotBlank(featureCode), "feature code cannot be blank");
+        Assert.isTrue(StringUtils.isNotBlank(featureName), "feature name cannot be blank");
     }
 }

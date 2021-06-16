@@ -10,7 +10,7 @@ import com.assessment.feature.service.model.UserAccessRequestBO;
  */
 public interface FeatureService {
 
-    UserAccessBO getUserAccess(String email, String featureCode);
+    UserAccessBO getUserAccess(String email, String featureName);
 
     UserAccessBO updateUserAccess(UserAccessRequestBO userAccessRequestBO);
 }

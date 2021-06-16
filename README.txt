@@ -14,3 +14,5 @@
 5. To add a new feature, insert a row into the FEATURE table.
 
     for e.g., INSERT INTO FEATURE (id, feature_code, feature_name) VALUES (4, 'DOWNLOAD_TXN_HISTORY', 'Download Transaction History');
+
+6. A sample postman script can be found in the project folder (scripts.postman_collection.json)

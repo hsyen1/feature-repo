@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface FeatureRepository extends JpaRepository<Feature, Long> {
 
-    Feature findByFeatureCode(String featureCode);
+    Feature findByFeatureName(String featureName);
 }

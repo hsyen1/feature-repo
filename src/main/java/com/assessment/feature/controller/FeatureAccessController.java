@@ -48,7 +48,7 @@ public class FeatureAccessController {
     private UserAccessRequestBO convertToUserAccessBO(FeatureAccessRequestDTO requestDTO) {
         UserAccessRequestBO userAccessRequestBO = new UserAccessRequestBO();
 
-        userAccessRequestBO.setFeatureCode(requestDTO.getFeatureName());
+        userAccessRequestBO.setFeatureName(requestDTO.getFeatureName());
         userAccessRequestBO.setEmail(requestDTO.getEmail());
         userAccessRequestBO.setEnable(requestDTO.isEnable());
 

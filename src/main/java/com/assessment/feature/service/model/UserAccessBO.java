@@ -14,7 +14,7 @@ public class UserAccessBO extends ResultInfo {
 
     private String email;
 
-    private String featureCode;
+    private String featureName;
 
     private boolean canAccess;
 
@@ -34,12 +34,12 @@ public class UserAccessBO extends ResultInfo {
         this.email = email;
     }
 
-    public String getFeatureCode() {
-        return featureCode;
+    public String getFeatureName() {
+        return featureName;
     }
 
-    public void setFeatureCode(String featureCode) {
-        this.featureCode = featureCode;
+    public void setFeatureName(String featureName) {
+        this.featureName = featureName;
     }
 
     public boolean isCanAccess() {

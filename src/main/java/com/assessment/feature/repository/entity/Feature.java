@@ -16,9 +16,9 @@ public class Feature {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String featureCode;
-
     private String featureName;
+
+    private String featureDescription;
 
     public long getId() {
         return id;
@@ -28,19 +28,19 @@ public class Feature {
         this.id = id;
     }
 
-    public String getFeatureCode() {
-        return featureCode;
-    }
-
-    public void setFeatureCode(String featureCode) {
-        this.featureCode = featureCode;
-    }
-
     public String getFeatureName() {
         return featureName;
     }
 
     public void setFeatureName(String featureName) {
         this.featureName = featureName;
+    }
+
+    public String getFeatureDescription() {
+        return featureDescription;
+    }
+
+    public void setFeatureDescription(String featureDescription) {
+        this.featureDescription = featureDescription;
     }
 }

@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "034d3ec7-f549-443f-8886-7bbc273256f2",
+		"name": "scripts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get feature access",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/feature?email=raj@testing.com&featureName=VIEW_TXN_HISTORY",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feature"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "raj@testing.com"
+						},
+						{
+							"key": "featureName",
+							"value": "VIEW_TXN_HISTORY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update access",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"featureName\": \"VIEW_CONSOLE\",\n\t\"email\": \"raj@testing.com\",\n\t\"enable\": false\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/feature",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feature"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
